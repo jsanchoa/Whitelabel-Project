@@ -55,7 +55,6 @@ const data = {
       title: "Inventory",
       url: "#",
       icon: Box,
-      isActive: true,
       items: [
         {
           title: "Dashboard",
@@ -221,12 +220,22 @@ const data = {
   ],
 };
 
+// Funcion normal
+export function FuncionPruebaJimena(argumentos) {
+  if (argumentos) {
+    console.log("Hola");
+  } else {
+    console.log("No hay nada");
+  }
+}
+
 export function AppSidebar({ ...props }) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
+
       <SidebarContent>
         <NavMain items={data.navMain} />
         <NavProjects projects={data.projects} />
