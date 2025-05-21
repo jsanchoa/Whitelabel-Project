@@ -220,15 +220,6 @@ const data = {
   ],
 };
 
-// Funcion normal
-export function FuncionPruebaJimena(argumentos) {
-  if (argumentos) {
-    console.log("Hola");
-  } else {
-    console.log("No hay nada");
-  }
-}
-
 export function AppSidebar({ ...props }) {
   return (
     <Sidebar collapsible="icon" {...props}>

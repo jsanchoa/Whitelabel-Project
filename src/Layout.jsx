@@ -1,15 +1,7 @@
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import { Toaster } from "@/components/ui/sonner";
 import { AppSidebar } from "./components/app-sidebar";
 import { BreadCrumbPage } from "./components/breadcrumb";
-
-// Funcion normal
-export function FuncionPruebaJimena(argumentos) {
-  if (argumentos) {
-    console.log("Hola");
-  } else {
-    console.log("No hay nada");
-  }
-}
 
 export default function Layout({ children }) {
   const data = {
@@ -30,6 +22,7 @@ export default function Layout({ children }) {
 
         {/* Componente  */}
         {children}
+        <Toaster />
       </SidebarInset>
     </SidebarProvider>
   );

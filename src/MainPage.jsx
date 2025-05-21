@@ -1,4 +1,5 @@
 import { CardsTest } from "./components/cards";
+import { TableTest } from "./components/table";
 
 export const MainPage = () => {
   const data = {
@@ -32,9 +33,8 @@ export const MainPage = () => {
 
   return (
     <>
-      <div>
-        <CardsTest data={data.cards} />
-      </div>
+      <CardsTest data={data.cards} />
+      <TableTest />
     </>
   );
 };
