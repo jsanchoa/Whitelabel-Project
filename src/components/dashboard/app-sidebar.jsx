@@ -14,10 +14,10 @@ import {
   Wallet,
 } from "lucide-react";
 
-import { NavMain } from "@/components/nav-main";
-import { NavProjects } from "@/components/nav-projects";
-import { NavUser } from "@/components/nav-user";
-import { TeamSwitcher } from "@/components/team-switcher";
+import { NavMain } from "@/components/dashboard/nav-main";
+import { NavProjects } from "@/components/dashboard/nav-projects";
+import { NavUser } from "@/components/dashboard/nav-user";
+import { TeamSwitcher } from "@/components/dashboard/team-switcher";
 import {
   Sidebar,
   SidebarContent,
@@ -25,14 +25,11 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar";
+import { useEffect, useState } from "react";
+import api from "../../api/api";
 
 // This is sample data.
 const data = {
-  user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
   teams: [
     {
       name: "Acme Inc",
@@ -221,6 +218,19 @@ const data = {
 };
 
 export function AppSidebar({ ...props }) {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const UserData = async () => {
+      try {
+        const res = await api.get("/me", { withCredentials: true });
+        setUser(res?.data);
+      } catch (error) {}
+    };
+
+    UserData();
+  }, []);
+
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
@@ -232,7 +242,7 @@ export function AppSidebar({ ...props }) {
         <NavProjects projects={data.projects} />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <NavUser user={user} />
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>

@@ -1,5 +1,5 @@
-import { CardsTest } from "./components/cards";
-import { TableTest } from "./components/table";
+import { CardsTest } from "../components/inventory/inventorycards";
+import { TableTest } from "../components/inventory/inventorytable";
 
 export const MainPage = () => {
   const data = {

@@ -1,7 +1,7 @@
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { Toaster } from "@/components/ui/sonner";
-import { AppSidebar } from "./components/app-sidebar";
-import { BreadCrumbPage } from "./components/breadcrumb";
+import { AppSidebar } from "./components/dashboard/app-sidebar";
+import { BreadCrumbPage } from "./components/dashboard/breadcrumb";
 
 export default function Layout({ children }) {
   const data = {
