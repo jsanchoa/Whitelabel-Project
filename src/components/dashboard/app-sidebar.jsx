@@ -35,17 +35,7 @@ const data = {
       name: "Acme Inc",
       logo: GalleryVerticalEnd,
       plan: "Enterprise",
-    },
-    {
-      name: "Acme Corp.",
-      logo: AudioWaveform,
-      plan: "Startup",
-    },
-    {
-      name: "Evil Corp.",
-      logo: Command,
-      plan: "Free",
-    },
+    }
   ],
   navMain: [
     {
@@ -55,12 +45,16 @@ const data = {
       items: [
         {
           title: "Dashboard",
-          url: "#",
+          url: "/inventory",
         },
         {
-          title: "XD",
-          url: "#",
+          title: "Categories",
+          url: "/inventory/categories",
         },
+        {
+          title: "Products",
+          url: "/inventory/products",
+        }
       ],
     },
     {
@@ -69,17 +63,13 @@ const data = {
       icon: BadgeDollarSign,
       items: [
         {
-          title: "Genesis",
-          url: "#",
+          title: "Dashboard",
+          url: "/sales",
         },
         {
-          title: "Explorer",
-          url: "#",
-        },
-        {
-          title: "Quantum",
-          url: "#",
-        },
+          title: "Sales",
+          url: "/sales/sales",
+        }
       ],
     },
     {
@@ -88,21 +78,9 @@ const data = {
       icon: Wallet,
       items: [
         {
-          title: "Introduction",
-          url: "#",
-        },
-        {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
-        },
+          title: "Billing",
+          url: "/billing",
+        }
       ],
     },
     {
@@ -111,21 +89,17 @@ const data = {
       icon: HandCoins,
       items: [
         {
-          title: "General",
-          url: "#",
+          title: "Dashboard",
+          url: "/accounting",
         },
         {
-          title: "Team",
-          url: "#",
+          title: "Income",
+          url: "/accounting/income",
         },
         {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
+          title: "Expenses",
+          url: "/accounting/expenses",
+        }
       ],
     },
     {
@@ -134,21 +108,17 @@ const data = {
       icon: CreditCard,
       items: [
         {
-          title: "General",
-          url: "#",
+          title: "Dashboard",
+          url: "/purchasing",
         },
         {
-          title: "Team",
-          url: "#",
+          title: "Purchases",
+          url: "/purchasing/purchases",
         },
         {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
+          title: "Providers",
+          url: "/purchasing/providers",
+        }
       ],
     },
     {
@@ -157,21 +127,9 @@ const data = {
       icon: CircleUserRound,
       items: [
         {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
+          title: "Clients",
+          url: "/clients",
+        }
       ],
     },
     {
@@ -180,21 +138,9 @@ const data = {
       icon: Settings,
       items: [
         {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
+          title: "Admin Center",
+          url: "/admin-center",
+        }
       ],
     },
   ],
