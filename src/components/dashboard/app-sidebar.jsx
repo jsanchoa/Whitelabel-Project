@@ -39,6 +39,17 @@ const data = {
   ],
   navMain: [
     {
+      title: "Reporting Dashboard",
+      url: "#",
+      icon: BadgeDollarSign,
+      items: [
+        {
+          title: "Dashboard",
+          url: "/dashboard",
+        }
+      ],
+    },
+    {
       title: "Inventory",
       url: "#",
       icon: Box,

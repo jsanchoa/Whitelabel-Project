@@ -90,7 +90,7 @@ export const AppRouter = () => {
 
       //Accounting
       <Route 
-        path="/accounting/" 
+        path="/accounting" 
         element={
           <Layout>
             <AccountingDashboard />
@@ -118,7 +118,7 @@ export const AppRouter = () => {
 
       //Purchasing
       <Route 
-        path="/purchasing/" 
+        path="/purchasing" 
         element={
           <Layout>
             <PurchasingProvidersDashboard />
