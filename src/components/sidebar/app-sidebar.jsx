@@ -14,10 +14,10 @@ import {
   Wallet,
 } from "lucide-react";
 
-import { NavMain } from "@/components/dashboard/nav-main";
-import { NavProjects } from "@/components/dashboard/nav-projects";
-import { NavUser } from "@/components/dashboard/nav-user";
-import { TeamSwitcher } from "@/components/dashboard/team-switcher";
+import { NavMain } from "@/components/sidebar/nav-main";
+import { NavProjects } from "@/components/sidebar/nav-projects";
+import { NavUser } from "@/components/sidebar/nav-user";
+import { TeamSwitcher } from "@/components/sidebar/team-switcher";
 import {
   Sidebar,
   SidebarContent,
