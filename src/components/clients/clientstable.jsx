@@ -3,7 +3,6 @@ import {
   Table,
   TableBody,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
@@ -132,7 +131,7 @@ export const ClientsTable = () => {
                       <DialogHeader>
                         <DialogTitle>Delete Confirmation</DialogTitle>
                         <DialogDescription>
-                          This action cannot be undone. This will permanently delete this client from your record.
+                          This action cannot be undone. This will permanently delete this client from your records.
                         </DialogDescription>
                       </DialogHeader>
                       <DialogFooter className="sm:justify-center">
