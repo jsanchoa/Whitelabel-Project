@@ -48,7 +48,7 @@ const providers = [
     businesstype: "Agriculture",
     accountnumber: "ACC-345678",
     address: "321 Green Way, Heredia",
-    status: "Pending",
+    status: "Active",
   },
   {
     name: "Pura Vida Logistics",
@@ -78,8 +78,8 @@ export const ProvidersTable = () => {
             {providers.map((provider, index) => (
               <TableRow key={index}>
                 <TableCell className="font-medium">{provider.name}</TableCell>
-                <TableCell>{provider.business_type}</TableCell>
-                <TableCell>{provider.account_number}</TableCell>
+                <TableCell>{provider.businesstype}</TableCell>
+                <TableCell>{provider.accountnumber}</TableCell>
                 <TableCell>{provider.address}</TableCell>
                 <TableCell>{provider.status}</TableCell>
                 <TableCell className="flex justify-end gap-2">
