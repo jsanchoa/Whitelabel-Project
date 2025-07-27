@@ -10,7 +10,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 
-export const BreadCrumbPage = ({ first_page, second_page }) => {
+export const BreadCrumbPage = ({ first_page, second_page, url }) => {
   return (
     <>
       <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
@@ -20,7 +20,7 @@ export const BreadCrumbPage = ({ first_page, second_page }) => {
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem className="hidden md:block">
-                <BreadcrumbLink href="#">{first_page}</BreadcrumbLink>
+                <BreadcrumbLink href={url}>{first_page}</BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator className="hidden md:block" />
               <BreadcrumbItem>

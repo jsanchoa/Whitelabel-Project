@@ -18,6 +18,41 @@ import { Clients } from "@/pages/Clients";
 import { AdminCenter } from "@/pages/AdminCenter";
 
 export const AppRouter = () => {
+
+  const data = {
+    clients: {
+      first_page: "Dashboard",
+      second_page: "Clients",
+      url: "",
+    },
+    inventory: {
+      first_page: "Dashboard",
+      second_page: "Inventory",
+      url: "/inventory",
+    },
+    inventory_categories: {
+      first_page: "Dashboard",
+      second_page: "Categories  ",
+      url: "/inventory",
+    },
+    inventory_products: {
+      first_page: "Dashboard",
+      second_page: "Products",
+      url: "/inventory",
+    },
+    sales: {
+      first_page: "Dashboard",
+      second_page: "Sales",
+      url: "/sales/dashboard",
+    },
+    sales_list: {
+      first_page: "Dashboard",
+      second_page: "Sales List",
+      url: "/sales/dashboard",
+    },
+  };
+
+
   return (
     <Routes>
       <Route path="/login" element={<LoginPage />} />
@@ -25,7 +60,7 @@ export const AppRouter = () => {
       <Route
         path="/dashboard"
         element={
-          <Layout>
+          <Layout data={data}>
             <MainPage />
           </Layout>
         }
@@ -35,7 +70,7 @@ export const AppRouter = () => {
       <Route 
         path="/inventory" 
         element={
-          <Layout>
+          <Layout data={data.inventory}>
             <InventoryDashboard />
           </Layout>
         } 
@@ -44,7 +79,7 @@ export const AppRouter = () => {
       <Route 
         path="/inventory/categories" 
         element={
-          <Layout>
+          <Layout data={data.inventory_categories}>
             <Categories />
           </Layout>
         } 
@@ -53,7 +88,7 @@ export const AppRouter = () => {
       <Route 
         path="/inventory/products" 
         element={
-          <Layout>
+          <Layout data={data.inventory_products}>
             <Products />
           </Layout>
         } 
@@ -61,18 +96,18 @@ export const AppRouter = () => {
 
       //Sales
       <Route 
-        path="/sales" 
+        path="/sales/dashboard" 
         element={
-          <Layout>
+          <Layout data={data.sales}>
             <SalesDashboard />
           </Layout>
         } 
       />
 
       <Route 
-        path="/sales/sales" 
+        path="/sales/list" 
         element={
-          <Layout>
+          <Layout data={data.sales_list}>
             <Sales />
           </Layout>
         } 

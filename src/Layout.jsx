@@ -3,13 +3,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { AppSidebar } from "./components/sidebar/app-sidebar";
 import { BreadCrumbPage } from "./components/sidebar/breadcrumb";
 
-export default function Layout({ children }) {
-  const data = {
-    user: {
-      first_page: "Dashboard",
-      second_page: "Management",
-    },
-  };
+export default function Layout({ children, data }) {
 
   return (
     <SidebarProvider>
@@ -18,7 +12,7 @@ export default function Layout({ children }) {
 
       <SidebarInset>
         {/* Area del Breadcrumb */}
-        <BreadCrumbPage {...data.user} />
+        <BreadCrumbPage {...data} />
 
         {/* Componente  */}
         {children}
