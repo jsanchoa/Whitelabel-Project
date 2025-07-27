@@ -36,7 +36,7 @@ export function ChartBarDefault() {
   return (
     <div className="flex flex-row gap-4 px-4 lg:px-6 pt-4">
       <Card className="@container/card min-w-[280px] flex-1">
-        <CardHeader>
+        <CardHeader className="text-2xl @[250px]/card:text-3xl font-bold">
           <CardTitle>Stock by Category</CardTitle>
         </CardHeader>
         <CardContent className="h-[420px]">
