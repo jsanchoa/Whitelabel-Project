@@ -15,7 +15,6 @@ import {
 } from "lucide-react";
 
 import { NavMain } from "@/components/sidebar/nav-main";
-import { NavProjects } from "@/components/sidebar/nav-projects";
 import { NavUser } from "@/components/sidebar/nav-user";
 import { TeamSwitcher } from "@/components/sidebar/team-switcher";
 import {
@@ -155,23 +154,6 @@ const data = {
       ],
     },
   ],
-  projects: [
-    {
-      name: "Design Engineering",
-      url: "#",
-      icon: Frame,
-    },
-    {
-      name: "Sales & Marketing",
-      url: "#",
-      icon: PieChart,
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: Map,
-    },
-  ],
 };
 
 export function AppSidebar({ ...props }) {
@@ -196,7 +178,6 @@ export function AppSidebar({ ...props }) {
 
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={user} />
