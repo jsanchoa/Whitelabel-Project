@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import { ProvidersPurchasesDashboard } from "@/components/Providers and Purchasing/ProvidersPurchasesDashboard";
 
-export const PurchasingProvidersDashboard = () => {
+const PurchasingProvidersDashboard = () => {
   return (
     <div>
-      
+      <ProvidersPurchasesDashboard />
     </div>
-  )
-}
+  );
+};
+
+export default PurchasingProvidersDashboard;

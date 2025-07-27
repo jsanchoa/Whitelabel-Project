@@ -11,7 +11,7 @@ import { Billing } from "../pages/Billing";
 import { AccountingDashboard } from "../pages/AccountingDashboard";
 import { Income } from "../pages/Income";
 import { Expenses } from "../pages/Expenses";
-import { PurchasingProvidersDashboard } from "../pages/PurchasingProvidersDashboard";
+import PurchasingProvidersDashboard from "../pages/PurchasingProvidersDashboard";
 import { Purchases } from "../pages/Purchases";
 import { Providers } from "../pages/Providers";
 import { Clients } from "@/pages/Clients";
