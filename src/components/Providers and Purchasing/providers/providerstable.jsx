@@ -57,6 +57,76 @@ const providers = [
     address: "987 Cargo Blvd, Puntarenas",
     status: "Active",
   },
+  {
+  name: "SolarTech Innovations",
+  businesstype: "Energy",
+  accountnumber: "ACC-111222",
+  address: "15 Sun St, Guanacaste",
+  status: "Active",
+},
+{
+  name: "Bamboo Essentials",
+  businesstype: "Eco Products",
+  accountnumber: "ACC-333444",
+  address: "44 Verde Lane, Limón",
+  status: "Inactive",
+},
+{
+  name: "CloudSync Solutions",
+  businesstype: "IT Services",
+  accountnumber: "ACC-555666",
+  address: "9 Digital Dr, San José",
+  status: "Active",
+},
+{
+  name: "Tico Coffee Export",
+  businesstype: "Agriculture",
+  accountnumber: "ACC-777888",
+  address: "100 Bean Hill, Alajuela",
+  status: "Active",
+},
+{
+  name: "Rainforest Prints",
+  businesstype: "Printing",
+  accountnumber: "ACC-999000",
+  address: "8 Ink Ave, Cartago",
+  status: "Inactive",
+},
+{
+  name: "UrbanBuild CR",
+  businesstype: "Construction",
+  accountnumber: "ACC-121314",
+  address: "500 Concrete Rd, Heredia",
+  status: "Active",
+},
+{
+  name: "FreshCatch Seafood",
+  businesstype: "Food Supply",
+  accountnumber: "ACC-151617",
+  address: "25 Ocean View, Puntarenas",
+  status: "Inactive",
+},
+{
+  name: "HealthWave Supplies",
+  businesstype: "Medical Equipment",
+  accountnumber: "ACC-181920",
+  address: "66 Wellness Blvd, San José",
+  status: "Active",
+},
+{
+  name: "TicoTransportes S.A.",
+  businesstype: "Transport",
+  accountnumber: "ACC-212223",
+  address: "78 Ruta Nacional, Guanacaste",
+  status: "Active",
+},
+{
+  name: "Paper & Pixel Studio",
+  businesstype: "Marketing",
+  accountnumber: "ACC-242526",
+  address: "3 Creativa Way, Limón",
+  status: "Active",
+}
 ];
 
 export const ProvidersTable = () => {

@@ -9,42 +9,65 @@ import {
 
 const recentPurchases = [
   {
-    provider: "Tech Supplies Co.",
-    date: "2024-01-15",
-    product: "Wireless Mouse",
-    quantity: 2,
-    method: "Credit Card",
-    subtotal: "₡25,500",
+    purchasenumber: "PUR-012",
+    provider: "Sustainable Solutions",
+    purchasedate: "2025-07-12",
+    products: "Recycled Paper",
+    quantity: 50,
+    paymentmethod: "Credit Card",
+    subtotal: "$122.64",
     status: "Completed",
   },
-  // Agrega solo algunos recientes
+  {
+    purchasenumber: "PUR-013",
+    provider: "Organic Farms",
+    purchasedate: "2025-07-16",
+    products: "Organic Tomatoes",
+    quantity: 40,
+    paymentmethod: "Bank Transfer",
+    subtotal: "$245.28",
+    status: "Completed",
+  },
+  {
+    purchasenumber: "PUR-014",
+    provider: "Tech Supplies Co.",
+    purchasedate: "2025-07-21",
+    products: "Computer Mice",
+    quantity: 20,
+    paymentmethod: "Credit Card",
+    subtotal: "$471.70",
+    status: "Pending",
+  }
 ];
+// 3 most recent ones
 
 export const PurchasesTableMini = () => (
   <Table>
     <TableHeader>
-      <TableRow>
-        <TableHead>Provider</TableHead>
-        <TableHead>Purchase Date</TableHead>
-        <TableHead>Products</TableHead>
-        <TableHead>Quantity</TableHead>
-        <TableHead>Payment Method</TableHead>
-        <TableHead>Subtotal</TableHead>
-        <TableHead>Status</TableHead>
-      </TableRow>
-    </TableHeader>
+  <TableRow>
+    <TableHead className="text-center">Purchase Number</TableHead>
+    <TableHead className="text-center">Provider</TableHead>
+    <TableHead className="text-center">Purchase Date</TableHead>
+    <TableHead className="text-center">Products</TableHead>
+    <TableHead className="text-center">Quantity</TableHead>
+    <TableHead className="text-center">Payment Method</TableHead>
+    <TableHead className="text-center">Subtotal</TableHead>
+    <TableHead className="text-center">Status</TableHead>
+  </TableRow>
+</TableHeader>
     <TableBody>
-      {recentPurchases.map((p, i) => (
-        <TableRow key={i}>
-          <TableCell>{p.provider}</TableCell>
-          <TableCell>{p.date}</TableCell>
-          <TableCell>{p.product}</TableCell>
-          <TableCell>{p.quantity}</TableCell>
-          <TableCell>{p.method}</TableCell>
-          <TableCell>{p.subtotal}</TableCell>
-          <TableCell>{p.status}</TableCell>
-        </TableRow>
-      ))}
-    </TableBody>
+  {recentPurchases.map((p, i) => (
+    <TableRow key={i}>
+      <TableCell className="text-center">{p.purchasenumber}</TableCell>
+      <TableCell className="text-center">{p.provider}</TableCell>
+      <TableCell className="text-center">{p.purchasedate}</TableCell>
+      <TableCell className="text-center">{p.products}</TableCell>
+      <TableCell className="text-center">{p.quantity}</TableCell>
+      <TableCell className="text-center">{p.paymentmethod}</TableCell>
+      <TableCell className="text-center">{p.subtotal}</TableCell>
+      <TableCell className="text-center">{p.status}</TableCell>
+    </TableRow>
+  ))}
+</TableBody>
   </Table>
 );
