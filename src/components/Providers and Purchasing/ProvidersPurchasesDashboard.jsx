@@ -122,5 +122,5 @@ export function ProvidersPurchasesDashboard() {
         </CardContent>
       </Card>
     </div>
-  );
+  )
 }

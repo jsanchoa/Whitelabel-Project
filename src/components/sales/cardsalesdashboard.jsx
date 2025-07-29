@@ -3,7 +3,7 @@ import { BarChart3, ShoppingCart, Users, AlertTriangle } from "lucide-react";
 
 export const CardsSalesDashboard = () => {
   // Datos simulados (puedes reemplazarlos con data real del backend o TanStack Query)
-  const sells = {
+  const sales = {
     day: 1200,
     week: 8400,
     month: 32800,
@@ -34,13 +34,13 @@ export const CardsSalesDashboard = () => {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <BarChart3 className="text-green-600" /> Total Sells
+            <BarChart3 className="text-green-600" /> Total Sales
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-sm">Today: <span className="font-semibold">${sells.day.toLocaleString()}</span> <span className="text-green-600">(+{sells.changeDay}%)</span></p>
-          <p className="text-sm">This week: <span className="font-semibold">${sells.week.toLocaleString()}</span> <span className="text-red-600">({sells.changeWeek}%)</span></p>
-          <p className="text-sm">This month: <span className="font-semibold">${sells.month.toLocaleString()}</span> <span className="text-green-600">(+{sells.changeMonth}%)</span></p>
+          <p className="text-sm">Today: <span className="font-semibold">${sales.day.toLocaleString()}</span> <span className="text-green-600">(+{sales.changeDay}%)</span></p>
+          <p className="text-sm">This week: <span className="font-semibold">${sales.week.toLocaleString()}</span> <span className="text-red-600">({sales.changeWeek}%)</span></p>
+          <p className="text-sm">This month: <span className="font-semibold">${sales.month.toLocaleString()}</span> <span className="text-green-600">(+{sales.changeMonth}%)</span></p>
         </CardContent>
       </Card>
 
@@ -64,12 +64,12 @@ export const CardsSalesDashboard = () => {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Users className="text-purple-600" /> Clients / Users
+            <Users className="text-purple-600" /> Clients
           </CardTitle>
         </CardHeader>
         <CardContent>
           <p className="text-sm">Registered Clients: <span className="font-semibold">{clients.total}</span></p>
-          <p className="text-sm">Active Users: <span className="font-semibold">{clients.active}</span></p>
+          <p className="text-sm">Active Clients: <span className="font-semibold">{clients.active}</span></p>
         </CardContent>
       </Card>
 

@@ -142,22 +142,8 @@ const data = {
         }
       ],
     },
-    {
-      title: "Admin Center",
-      url: "#",
-      icon: Settings,
-      items: [
-        {
-          title: "Admin Center",
-          url: "/admin-center",
-        }
-      ],
-    },
-<<<<<<< HEAD
+
   ],
-=======
-  ]
->>>>>>> 63d035e (Add Billing and Sales section, Add breadcrumb section for everysingle page)
 };
 
 export function AppSidebar({ ...props }) {
