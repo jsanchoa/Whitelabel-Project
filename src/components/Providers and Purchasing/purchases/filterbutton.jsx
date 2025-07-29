@@ -13,7 +13,7 @@ export function FilterButton() {
       className="bg-black text-white flex items-center gap-2 px-4 py-2 rounded-md"
     >
       <Filter size={18} />
-      Filter by Client
+      Filter by Purchase Number
     </Button>
   );
 }
