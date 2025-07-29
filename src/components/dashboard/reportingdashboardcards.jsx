@@ -24,7 +24,6 @@ export const ReportingDashboardCards = ({
 }) => {
   return (
     <div className="flex flex-col gap-6 px-4 lg:px-6">
-      {/* Summary Cards */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card className="w-full shadow-sm">
           <CardHeader>
@@ -91,7 +90,6 @@ export const ReportingDashboardCards = ({
         </Card>
       </div>
 
-      {/* Charts */}
       <div className="grid gap-4 md:grid-cols-2">
         <Card className="@container/card min-w-[280px] flex-1">
             <CardHeader className="text-2xl @[250px]/card:text-3xl font-bold">

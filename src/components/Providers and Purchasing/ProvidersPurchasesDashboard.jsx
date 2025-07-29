@@ -18,9 +18,7 @@ import { PurchasesFrequencyChart } from "./PurchasesFrequencyChart";
 export function ProvidersPurchasesDashboard() {
   return (
     <div className="flex flex-col gap-6 px-4 lg:px-6">
-      {/* Summary Cards */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {/* Total Purchase Value */}
         <Card className="w-full shadow-sm">
           <CardHeader className="pb-2 flex flex-row items-center justify-between space-y-0">
             <CardTitle className="text-sm font-medium text-muted-foreground">
@@ -36,7 +34,6 @@ export function ProvidersPurchasesDashboard() {
           </CardContent>
         </Card>
 
-        {/* Active Providers */}
         <Card className="w-full shadow-sm">
           <CardHeader className="pb-2 flex flex-row items-center justify-between space-y-0">
             <CardTitle className="text-sm font-medium text-muted-foreground">
@@ -52,7 +49,6 @@ export function ProvidersPurchasesDashboard() {
           </CardContent>
         </Card>
 
-        {/* Pending Purchases */}
         <Card className="w-full shadow-sm">
           <CardHeader className="pb-2 flex flex-row items-center justify-between space-y-0">
             <CardTitle className="text-sm font-medium text-muted-foreground">
@@ -71,7 +67,6 @@ export function ProvidersPurchasesDashboard() {
           </CardContent>
         </Card>
 
-        {/* Inactive Providers */}
         <Card className="w-full shadow-sm">
           <CardHeader className="pb-2 flex flex-row items-center justify-between space-y-0">
             <CardTitle className="text-sm font-medium text-muted-foreground">
@@ -91,7 +86,6 @@ export function ProvidersPurchasesDashboard() {
         </Card>
       </div>
 
-      {/* Mini Tables */}
       <div className="grid gap-4 md:grid-cols-2">
         <Card>
           <CardHeader>
@@ -112,7 +106,6 @@ export function ProvidersPurchasesDashboard() {
         </Card>
       </div>
 
-      {/* Bar Chart */}
       <Card>
         <CardHeader>
           <CardTitle className="text-xl font-semibold">Purchase Frequency by Provider</CardTitle>
