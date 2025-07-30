@@ -4,10 +4,10 @@ import CustomTable from "@/components/customs/c_simpleTable"
 import AccChart from "@/components/accounting/Acc_Chart"
 
 const chartData = [
-  { date: "2025-04-01", incomes: 222, outcomes: 150 },
-  { date: "2025-04-02", incomes: 97, outcomes: 180 },
-  { date: "2025-04-03", incomes: 167, outcomes: 120 },
-  { date: "2025-06-30", incomes: 446, outcomes: 400 },
+  { date: "2025-04-01", incomes: 222, expenses: 150 },
+  { date: "2025-04-02", incomes: 97, expenses: 180 },
+  { date: "2025-04-03", incomes: 167, expenses: 120 },
+  { date: "2025-06-30", incomes: 446, expenses: 400 },
 ]
 
 export const AccountingDashboard = () => {
@@ -32,16 +32,16 @@ export const AccountingDashboard = () => {
     amount: item.incomes,
   }));
 
-  const outcomesData = filteredData.map((item) => ({
+  const expensesData = filteredData.map((item) => ({
     date: item.date,
-    amount: item.outcomes,
+    amount: item.expenses,
   }));
 
   return (
     <div className="container mx-auto p-6">
       <h1 className="text-3xl font-bold mb-4">Accounting Dashboard</h1>
        <p className="mb-6">
-        The Accounting Dashboard provides an overview of your financial data, including incomes and outcomes over the selected time period. 
+        The Accounting Dashboard provides an overview of your financial data, including incomes and expenses over the selected time period. 
         Use the time filters to adjust the range and view detailed tables and charts for better financial analysis.
       </p>
       <div className="grid grid-cols-1 gap-6">
@@ -68,14 +68,12 @@ export const AccountingDashboard = () => {
             </SelectContent>
           </Select>
         </div>
-        <div className="grid grid-cols-2 gap-10">
+        <div className="grid grid-cols-2">
           <div>
-            <h2 className="text-xl font-bold mb-2">Incomes</h2>
-            <CustomTable data={incomesData} />
+            <CustomTable data={incomesData} title={"Incomes"} />
           </div>
           <div>
-            <h2 className="text-xl font-bold mb-2">Outcomes</h2>
-            <CustomTable data={outcomesData} />
+            <CustomTable data={expensesData} title={"Expenses"}/>
           </div>
         </div>
         

@@ -41,7 +41,7 @@ export const Income = () => {
       <div className="flex justify-center m-8">
         
         <div>
-          <CEditableTable data={incomes} />
+          <CEditableTable data={incomes} title={"Incomes registered"} />
         </div>
       </div>
     </div>

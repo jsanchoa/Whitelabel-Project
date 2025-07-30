@@ -50,6 +50,12 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 const data = [
   {
@@ -68,38 +74,54 @@ const data = [
   },
 ];
 
-const DynamicTable = ({ data }) => {
+const DynamicTable = ({ data, title }) => {
   const headers = Object.keys(data[0]);
 
   return (
-    <Table className="rounded-[12px] w-[90%]">
-      <TableHeader>
-        <TableRow>
-          {headers.map((header, index) => (
-            <TableHead key={index} className="text-center"><b>{header}</b></TableHead>
-          ))}
-          <TableHead className="w-[150px]"></TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {data.map((row, rowIndex) => (
-          <TableRow key={rowIndex}>
-            {headers.map((header, cellIndex) => (
-              <TableCell key={cellIndex} className="text-center">{row[header]}</TableCell>
-            ))}
-            
-          </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+
+
+
+    <div className="flex justify-center">
+      <Card>
+        <CardHeader>
+          <CardTitle><b>{title}</b></CardTitle>
+        </CardHeader>
+        <CardContent>
+
+          <Table className="rounded-[12px] w-[90%]">
+            <TableHeader>
+              <TableRow>
+                {headers.map((header, index) => (
+                  <TableHead key={index} className="text-center"><b>{header}</b></TableHead>
+                ))}
+                <TableHead className="w-[150px]"></TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {data.map((row, rowIndex) => (
+                <TableRow key={rowIndex}>
+                  {headers.map((header, cellIndex) => (
+                    <TableCell key={cellIndex} className="text-center">{row[header]}</TableCell>
+                  ))}
+
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+
+        </CardContent>
+      </Card>
+
+    </div>
+
   );
 };
 
-export const Custom_Table = ({data}) => {
+export const Custom_Table = ({ data, title }) => {
   return (
     <div className="flex justify-center m-8">
       <div>
-        <DynamicTable data={data} />
+        <DynamicTable data={data} title={title}/>
       </div>
     </div>
   );

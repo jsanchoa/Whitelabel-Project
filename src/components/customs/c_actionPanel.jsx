@@ -1,10 +1,18 @@
 import { FilterButton } from "./c_filterButton";
-import { RegisterClientButton } from "./c_addButton";
+import { AddButton } from "./c_addButton";
 import { SearchBar } from "./c_searchbar";
 
-export const ClientsHeader = () => {
+
+const filterOptions = [
+  { value: "Active" },
+  { value: "Inactive" },
+  { value: "Pending" },
+  
+];
+
+export const ActionPanel = () => {
   const handleSearch = (query) => {
-    console.log("Searching for:", query);
+    console.log("Selected:", query);
   };
 
   return (
@@ -15,11 +23,11 @@ export const ClientsHeader = () => {
         </div>
 
         <div className="flex-1 flex justify-left">
-          <FilterButton />
+          <FilterButton options={filterOptions}/>
         </div>
 
         <div className="flex-1 flex justify-end">
-          <RegisterClientButton />
+          <AddButton />
         </div>
       </div>
     </div>
