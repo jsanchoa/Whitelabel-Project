@@ -153,12 +153,8 @@ const data = {
         }
       ],
     },
-<<<<<<< HEAD
-  ],
-=======
-  ]
->>>>>>> 63d035e (Add Billing and Sales section, Add breadcrumb section for everysingle page)
-};
+
+]};
 
 export function AppSidebar({ ...props }) {
   const [user, setUser] = useState(null);
