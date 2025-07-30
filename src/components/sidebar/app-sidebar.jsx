@@ -142,19 +142,8 @@ const data = {
         }
       ],
     },
-    {
-      title: "Admin Center",
-      url: "#",
-      icon: Settings,
-      items: [
-        {
-          title: "Admin Center",
-          url: "/admin-center",
-        }
-      ],
-    },
-
-]};
+  ],
+};
 
 export function AppSidebar({ ...props }) {
   const [user, setUser] = useState(null);
@@ -184,5 +173,5 @@ export function AppSidebar({ ...props }) {
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
-  );
+  );
 }

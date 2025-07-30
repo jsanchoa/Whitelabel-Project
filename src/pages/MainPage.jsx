@@ -1,40 +1,38 @@
-import { CardsTest } from "../components/inventory/inventorycards";
-import { TableTest } from "../components/inventory/inventorytable";
+import { ReportingDashboardCards } from "../components/dashboard/ReportingDashboardCards"
 
 export const MainPage = () => {
-  const data = {
-    cards: [
-      {
-        Title: "Total Revenue",
-        Amount: 1250.0,
-        State: "Trending up this month",
-        Visitors: "Visitors for the last 6 months",
-      },
-      {
-        Title: "Total Pricepool",
-        Amount: 3000.0,
-        State: "Trending down this month",
-        Visitors: "Visitors for the last 12 months",
-      },
-      {
-        Title: "Total Happyness",
-        Amount: 2000.0,
-        State: "Trending mid this month",
-        Visitors: "Visitors for the last 8 months",
-      },
-      {
-        Title: "Total Sadness",
-        Amount: 5000.0,
-        State: "Trending mid this month",
-        Visitors: "Visitors for the last 8 months",
-      },
-    ],
-  };
+  const sells = {
+    day: 2400,
+    week: 14800,
+    month: 58500,
+    changeDay: 12.5,
+    changeWeek: -3.1,
+    changeMonth: 9.2,
+  }
+
+  const topProducts = [
+    { name: "Wireless Mouse", quantity: 120 },
+    { name: "Laptop Stand", quantity: 90 },
+    { name: "HDMI Cable", quantity: 75 },
+  ]
+
+  const clients = {
+    total: 1500,
+    active: 624,
+  }
+
+  const inventoryStock = [
+    { name: "USB-C Hub", stock: 3 },
+    { name: "External SSD", stock: 1 },
+  ]
 
   return (
-    <>
-      <CardsTest data={data.cards} />
-      <TableTest />
-    </>
-  );
-};
+    <ReportingDashboardCards
+      sells={sells}
+      topProducts={topProducts}
+      clients={clients}
+      inventoryStock={inventoryStock}
+      showEmptyCards={true} // pass a flag to include 2 extra empty cards
+    />
+  )
+}
