@@ -142,17 +142,6 @@ const data = {
         }
       ],
     },
-    {
-      title: "Admin Center",
-      url: "#",
-      icon: Settings,
-      items: [
-        {
-          title: "Admin Center",
-          url: "/admin-center",
-        }
-      ],
-    },
   ],
 };
 
