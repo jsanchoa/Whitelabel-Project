@@ -28,7 +28,7 @@ const categories = [
   },
   {
     name: "Furniture",
-    description: "Office furniture such as desks, chairs, and footrests.",
+    description: "Office furniture such as desks, chairs.",
   },
   {
     name: "Accessories",
