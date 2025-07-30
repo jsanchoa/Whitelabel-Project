@@ -38,7 +38,7 @@ const DynamicTable = ({ data, title }) => {
     <div className="flex justify-center">
       <Card>
         <CardHeader>
-          <CardTitle>{title}</CardTitle>
+          <CardTitle><b>{title}</b></CardTitle>
         </CardHeader>
         <CardContent>
 
