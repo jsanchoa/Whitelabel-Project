@@ -148,16 +148,16 @@ const data = {
 export function AppSidebar({ ...props }) {
   const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    const UserData = async () => {
-      try {
-        const res = await api.get("/me", { withCredentials: true });
-        setUser(res?.data);
-      } catch (error) {}
-    };
+  // useEffect(() => {
+  //   const UserData = async () => {
+  //     try {
+  //       const res = await api.get("/me", { withCredentials: true });
+  //       setUser(res?.data);
+  //     } catch (error) {}
+  //   };
 
-    UserData();
-  }, []);
+  //   UserData();
+  // }, []);
 
   return (
     <Sidebar collapsible="icon" {...props}>

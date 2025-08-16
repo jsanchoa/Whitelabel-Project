@@ -21,80 +21,36 @@ import {
 
 import { Pencil, Trash2 } from "lucide-react";
 
-const clients = [
-  {
-    name: "John",
-    lastnames: "Doe Romes",
-    email: "john.doe@example.com",
-    phonenumber: "+506 8888 1234",
-    status: "Active"
-  },
-  {
-    name: "Maria",
-    lastnames: "González Vargas",
-    email: "maria.gonzalez@example.com",
-    phonenumber: "+506 8888 5678",
-    status: "Inactive"
-  },
-  {
-    name: "Carlos",
-    lastnames: "Ramírez Fernandez",
-    email: "c.ramirez@example.com",
-    phonenumber: "+506 8888 9012",
-    status: "Active"
-  },
-  {
-    name: "Ana",
-    lastnames: "Morales Rojas",
-    email: "ana.morales@example.com",
-    phonenumber: "+506 8888 3456",
-    status: "Pending"
-  },
-  {
-    name: "Luis",
-    lastnames: "Fernández Segura",
-    email: "luis.fernandez@example.com",
-    phonenumber: "+506 8888 7890",
-    status: "Active"
-  },
-  {
-    name: "Elena",
-    lastnames: "Vargas Rojas",
-    email: "elena.vargas@example.com",
-    phonenumber: "+506 8888 1122",
-    status: "Inactive"
-  },
-  {
-    name: "Daniel",
-    lastnames: "Méndez Rivera",
-    email: "daniel.mendez@example.com",
-    phonenumber: "+506 8888 3344",
-    status: "Pending"
-  },
-  {
-    name: "Sofía",
-    lastnames: "Castro Lopez",
-    email: "sofia.castro@example.com",
-    phonenumber: "+506 8888 5566",
-    status: "Active"
-  },
-  {
-    name: "Javier",
-    lastnames: "López Gomez",
-    email: "javier.lopez@example.com",
-    phonenumber: "+506 8888 7788",
-    status: "Inactive"
-  },
-  {
-    name: "Lucía",
-    lastnames: "Sánchez Mendoza",
-    email: "lucia.sanchez@example.com",
-    phonenumber: "+506 8888 9900",
-    status: "Active"
-  }
-];
+import axios from "axios";
+import { useEffect, useState } from "react";
+
 
 export const ClientsTable = () => {
+
+  //Hook to save my data
+  const [clients, setClients] = useState([]);
+  
+  useEffect(() => {
+    getClientsList();
+  }, [])
+
+
+  // Function to get ClientsList
+  const getClientsList = async() => {
+
+    try {
+
+      // Variable for wait the get response and then save it into clients useState hook
+      const response = await axios.get('http://localhost:3000/v1/users/list');
+
+      setClients(response.data);
+    } catch(error) {
+      console.log(error);
+    }
+
+  }
+
+
   return (
     <div className="flex justify-center m-8">
       <div>
@@ -103,8 +59,6 @@ export const ClientsTable = () => {
             <TableRow>
               <TableHead className="w-[150px]">Name</TableHead>
               <TableHead>Last Names</TableHead>
-              <TableHead>Email</TableHead>
-              <TableHead>Phone Number</TableHead>
               <TableHead>Status</TableHead>
               <TableHead className="w-[150px]"></TableHead>
             </TableRow>
@@ -112,11 +66,9 @@ export const ClientsTable = () => {
           <TableBody>
             {clients.map((client, index) => (
               <TableRow key={index}>
-                <TableCell className="font-medium">{client.name}</TableCell>
-                <TableCell>{client.lastnames}</TableCell>
-                <TableCell>{client.email}</TableCell>
-                <TableCell>{client.phonenumber}</TableCell>
-                <TableCell>{client.status}</TableCell>
+                <TableCell className="font-medium">{client?.name}</TableCell>
+                <TableCell>{client?.last_name}</TableCell>
+                <TableCell>{client?.status}</TableCell>
                 <TableCell className="flex justify-end gap-2">
                   <Button className="w-8 h-8">
                     <Pencil />
