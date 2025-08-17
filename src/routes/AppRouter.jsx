@@ -16,6 +16,7 @@ import { Purchases } from "../pages/Purchases";
 import { Providers } from "../pages/Providers";
 import { Clients } from "@/pages/Clients";
 import { AdminCenter } from "@/pages/AdminCenter";
+import { PrivateRoute } from "@/context/PrivateRoute";
 
 export const AppRouter = () => {
 
@@ -60,9 +61,11 @@ export const AppRouter = () => {
       <Route
         path="/dashboard"
         element={
-          <Layout data={data}>
-            <MainPage />
-          </Layout>
+          <PrivateRoute>
+            <Layout data={data}>
+              <MainPage />
+            </Layout>
+          </PrivateRoute>
         }
       />
 
@@ -70,27 +73,33 @@ export const AppRouter = () => {
       <Route 
         path="/inventory" 
         element={
-          <Layout data={data.inventory}>
-            <InventoryDashboard />
-          </Layout>
+          <PrivateRoute>
+            <Layout data={data.inventory}>
+              <InventoryDashboard />
+            </Layout>
+          </PrivateRoute>
         } 
       />
 
       <Route 
         path="/inventory/categories" 
         element={
-          <Layout data={data.inventory_categories}>
-            <Categories />
-          </Layout>
+          <PrivateRoute>
+            <Layout data={data.inventory_categories}>
+              <Categories />
+            </Layout>
+          </PrivateRoute>
         } 
       />
 
       <Route 
         path="/inventory/products" 
         element={
-          <Layout data={data.inventory_products}>
-            <Products />
-          </Layout>
+          <PrivateRoute>
+            <Layout data={data.inventory_products}>
+              <Products />
+            </Layout>
+          </PrivateRoute>
         } 
       />
 
@@ -98,18 +107,22 @@ export const AppRouter = () => {
       <Route 
         path="/sales/dashboard" 
         element={
-          <Layout data={data.sales}>
-            <SalesDashboard />
-          </Layout>
+          <PrivateRoute>
+            <Layout data={data.sales}>
+              <SalesDashboard />
+            </Layout>
+          </PrivateRoute>
         } 
       />
 
       <Route 
         path="/sales/list" 
         element={
-          <Layout data={data.sales_list}>
-            <Sales />
-          </Layout>
+          <PrivateRoute>
+            <Layout data={data.sales_list}>
+              <Sales />
+            </Layout>
+          </PrivateRoute>
         } 
       />
 
@@ -117,9 +130,11 @@ export const AppRouter = () => {
       <Route 
         path="/billing" 
         element={
-          <Layout>
-            <Billing />
-          </Layout>
+          <PrivateRoute>
+            <Layout>
+              <Billing />
+            </Layout>
+          </PrivateRoute>
         } 
       />
 
@@ -127,27 +142,33 @@ export const AppRouter = () => {
       <Route 
         path="/accounting" 
         element={
-          <Layout>
-            <AccountingDashboard />
-          </Layout>
+          <PrivateRoute>
+            <Layout>
+              <AccountingDashboard />
+            </Layout>
+          </PrivateRoute>
         } 
       />
 
       <Route 
         path="/accounting/income" 
         element={
-          <Layout>
-            <Income />
-          </Layout>
+          <PrivateRoute>
+            <Layout>
+              <Income />
+            </Layout>
+          </PrivateRoute>
         } 
       />
 
       <Route 
         path="/accounting/expenses" 
         element={
-          <Layout>
-            <Expenses />
-          </Layout>
+          <PrivateRoute>
+            <Layout>
+              <Expenses />
+            </Layout>
+          </PrivateRoute>
         } 
       />
 
@@ -155,27 +176,33 @@ export const AppRouter = () => {
       <Route 
         path="/purchasing" 
         element={
-          <Layout>
-            <PurchasingProvidersDashboard />
-          </Layout>
+          <PrivateRoute>
+            <Layout>
+              <PurchasingProvidersDashboard />
+            </Layout>
+          </PrivateRoute>
         } 
       />
 
       <Route 
         path="/purchasing/purchases" 
         element={
-          <Layout>
-            <Purchases />
-          </Layout>
+          <PrivateRoute>
+            <Layout>
+              <Purchases />
+            </Layout>
+          </PrivateRoute>
         } 
       />
 
       <Route 
         path="/purchasing/providers" 
         element={
-          <Layout>
-            <Providers />
-          </Layout>
+          <PrivateRoute>
+            <Layout>
+              <Providers />
+            </Layout>
+          </PrivateRoute>
         } 
       />
 
@@ -183,9 +210,11 @@ export const AppRouter = () => {
       <Route 
         path="/clients" 
         element={
-          <Layout>
-            <Clients />
-          </Layout>
+          <PrivateRoute>
+            <Layout>
+              <Clients />
+            </Layout>
+          </PrivateRoute>
         } 
       />
 
@@ -193,9 +222,11 @@ export const AppRouter = () => {
       <Route 
         path="/admin-center" 
         element={
-          <Layout>
-            <AdminCenter />
-          </Layout>
+          <PrivateRoute>
+            <Layout>
+              <AdminCenter />
+            </Layout>
+          </PrivateRoute>
         } 
       />
 

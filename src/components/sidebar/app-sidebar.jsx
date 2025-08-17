@@ -24,8 +24,9 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import api from "../../api/api";
+import { AuthContext } from "@/context/AuthContext";
 
 // This is sample data.
 const data = {
@@ -146,18 +147,8 @@ const data = {
 };
 
 export function AppSidebar({ ...props }) {
-  const [user, setUser] = useState(null);
 
-  // useEffect(() => {
-  //   const UserData = async () => {
-  //     try {
-  //       const res = await api.get("/me", { withCredentials: true });
-  //       setUser(res?.data);
-  //     } catch (error) {}
-  //   };
-
-  //   UserData();
-  // }, []);
+  const { user } = useContext(AuthContext);
 
   return (
     <Sidebar collapsible="icon" {...props}>
