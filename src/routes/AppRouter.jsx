@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router";
+import { Navigate, Route, Routes } from "react-router";
 import Layout from "../Layout";
 import { LoginPage } from "../pages/LoginPage";
 import { MainPage } from "../pages/MainPage";
@@ -17,6 +17,7 @@ import { Providers } from "../pages/Providers";
 import { Clients } from "@/pages/Clients";
 import { AdminCenter } from "@/pages/AdminCenter";
 import { PrivateRoute } from "@/context/PrivateRoute";
+import { SalesAddPage } from "@/components/sales/salesadd";
 
 export const AppRouter = () => {
 
@@ -56,6 +57,7 @@ export const AppRouter = () => {
 
   return (
     <Routes>
+
       <Route path="/login" element={<LoginPage />} />
 
       <Route
@@ -110,6 +112,17 @@ export const AppRouter = () => {
           <PrivateRoute>
             <Layout data={data.sales}>
               <SalesDashboard />
+            </Layout>
+          </PrivateRoute>
+        } 
+      />
+
+      <Route 
+        path="/sales/add" 
+        element={
+          <PrivateRoute>
+            <Layout data={data.sales}>
+              <SalesAddPage />
             </Layout>
           </PrivateRoute>
         } 
@@ -229,6 +242,8 @@ export const AppRouter = () => {
           </PrivateRoute>
         } 
       />
+      
+      <Route path="*" element={<Navigate to="/login" />}/>
 
     </Routes>
   );

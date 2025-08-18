@@ -20,9 +20,8 @@ import {
 } from "@/components/ui/dialog";
 
 import { Pencil, Trash2 } from "lucide-react";
-
-import axios from "axios";
 import { useEffect, useState } from "react";
+import api from "@/api/api";
 
 
 
@@ -31,19 +30,18 @@ export const ClientsTable = () => {
   //Hook to save my data
   const [clients, setClients] = useState([]);
   
+  //useEffect funciona para cargar la funcion cada vez que renderiza la pagina
   useEffect(() => {
     getClientsList();
-  }, [])
+  }, []);
 
 
   // Function to get ClientsList
   const getClientsList = async() => {
 
     try {
-
       // Variable for wait the get response and then save it into clients useState hook
-      const response = await axios.get('http://localhost:3000/v1/users/list');
-
+      const response = await api.get('http://localhost:3000/v1/users/list');
       setClients(response.data);
     } catch(error) {
       console.log(error);
