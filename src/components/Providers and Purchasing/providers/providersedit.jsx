@@ -3,21 +3,43 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ArrowLeft, UserPlus } from "lucide-react";
 import axios from "axios";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { toast } from "sonner";
+import { useEffect, useState } from "react";
 import { useFormHook } from "@/hooks/use-hook";
 
-export const ProvidersAdd = () => {
+export const ProvidersEdit = () => {
   const navigate = useNavigate();
+  const { id } = useParams(); 
+  const [loading, setLoading] = useState(true);
 
-  // Campos de Provider (sin status)
-  const { name, business_type, account_number, address, onInputChange } =
+  const { name, business_type, account_number, address, onInputChange, setFormState } =
     useFormHook({
       name: "",
       business_type: "",
       account_number: "",
       address: "",
     });
+
+  useEffect(() => {
+    const fetchProvider = async () => {
+      try {
+        const { data } = await axios.get(`http://localhost:3000/v1/providers/info/${id}`);
+        setFormState({
+          name: data?.name ?? "",
+          business_type: data?.business_type ?? "",
+          account_number: data?.account_number ?? "",
+          address: data?.address ?? "",
+        });
+      } catch (error) {
+        toast.error("No se pudo cargar el proveedor");
+        navigate("/providers");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProvider();
+  }, [id]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -30,19 +52,27 @@ export const ProvidersAdd = () => {
     };
 
     try {
-      await axios.post("http://localhost:3000/v1/providers/add", payload);
-      toast.success("El proveedor se registró correctamente");
+      await axios.patch(`http://localhost:3000/v1/providers/edit/${id}`, payload);
+      toast.success("El proveedor se actualizó correctamente");
       navigate("/providers");
     } catch (error) {
-      toast.error("No se pudo registrar el proveedor");
+      toast.error("No se pudo actualizar el proveedor");
     }
   };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-64 text-sm text-muted-foreground">
+        Cargando proveedor...
+      </div>
+    );
+  }
 
   return (
     <div className="bg-sidebar-accent my-10 mx-35 border rounded p-12">
       <form onSubmit={handleSubmit}>
         <p className="font-sans text-2xl flex justify-center font-medium mb-12">
-          Nuevo Proveedor
+          Editar Proveedor
         </p>
 
         <div className="flex justify-between gap-5">
@@ -106,7 +136,7 @@ export const ProvidersAdd = () => {
           </Button>
           <Button type="submit" className="w-50">
             <UserPlus />
-            Guardar
+            Guardar cambios
           </Button>
         </div>
       </form>
