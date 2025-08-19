@@ -6,7 +6,7 @@ export function RegisterProductButton() {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/products/add");
+    navigate("inventory/products/add");
   };
 
   return (
