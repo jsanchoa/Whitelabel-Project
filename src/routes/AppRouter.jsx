@@ -20,6 +20,8 @@ import { PrivateRoute } from "@/context/PrivateRoute";
 import { SalesAddPage } from "@/components/sales/salesadd";
 import { ClientsAdd } from "@/components/clients/clientsadd";
 import { ClientsEdit } from "@/components/clients/clientsedit";
+import { ProductsAdd } from "@/components/inventory/productsadd";
+import { CategoriesAdd } from "@/components/inventory/categoriesadd";
 
 export const AppRouter = () => {
 
@@ -102,6 +104,28 @@ export const AppRouter = () => {
           <PrivateRoute>
             <Layout data={data.inventory_products}>
               <Products />
+            </Layout>
+          </PrivateRoute>
+        } 
+      />
+
+      <Route 
+        path="/inventory/products/add" 
+        element={
+          <PrivateRoute>
+            <Layout data={data.inventory_products}>
+              <ProductsAdd />
+            </Layout>
+          </PrivateRoute>
+        } 
+      />
+
+      <Route 
+        path="/inventory/categories/add" 
+        element={
+          <PrivateRoute>
+            <Layout data={data.inventory_categories}>
+              <CategoriesAdd />
             </Layout>
           </PrivateRoute>
         } 
