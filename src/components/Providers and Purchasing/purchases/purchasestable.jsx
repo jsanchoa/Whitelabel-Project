@@ -27,21 +27,21 @@ import api from "@/api/api";
 export const PurchasesTable = () => {
 
     //Hook to save my data
-  const [purchases, setClientPurchaseOrders] = useState([]);
+  const [purchases, setPPOProducts] = useState([]);
   
   //useEffect funciona para cargar la funcion cada vez que renderiza la pagina
   useEffect(() => {
-    getClientPurchaseOrderList();
+    getPPOProductsList();
   }, []);
 
 
-  // Function to get ClientPurchaseOrderList
-  const getClientPurchaseOrderList = async() => {
+  // Function to get PPOProductsList
+  const getPPOProductsList = async() => {
 
     try {
-      // Variable for wait the get response and then save it into clientpurchaseorder useState hook
-      const response = await api.get('http://localhost:3000/v1/clientpurchaseorder/list');
-      setClientPurchaseOrders(response.data);
+      // Variable for wait the get response and then save it into PPOProducts useState hook
+      const response = await api.get('http://localhost:3000/v1/ppoproducts/list');
+      setPPOProducts(response.data);
     } catch(error) {
       console.log(error);
     }
