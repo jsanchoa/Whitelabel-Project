@@ -20,51 +20,33 @@ import {
 } from "@/components/ui/dialog";
 
 import { Pencil, Trash2 } from "lucide-react";
-
-const categories = [
-  {
-    name: "Electronics",
-    description: "Devices and gadgets like mice, monitors, and webcams.",
-  },
-  {
-    name: "Furniture",
-    description: "Office furniture such as desks, chairs.",
-  },
-  {
-    name: "Accessories",
-    description: "Peripheral devices and connectors for computers.",
-  },
-  {
-    name: "Storage",
-    description: "External and internal data storage solutions.",
-  },
-  {
-    name: "Office Supplies",
-    description: "Products used in office environments like whiteboards.",
-  },
-  {
-    name: "Lighting",
-    description: "Desk lamps and LED lighting solutions.",
-  },
-  {
-    name: "Audio",
-    description: "Headphones, microphones, and audio equipment.",
-  },
-  {
-    name: "Video",
-    description: "Projectors and webcams for visual presentations.",
-  },
-  {
-    name: "Ergonomics",
-    description: "Tools to improve posture and comfort at work.",
-  },
-  {
-    name: "Displays",
-    description: "Computer screens and high-definition monitors.",
-  },
-];
+import { useEffect, useState } from "react";
+import api from "@/api/api";
 
 export const CategoriesTable = () => {
+
+  //Hook to save my data
+  const [categories, setCategories] = useState([]);
+  
+  //useEffect funciona para cargar la funcion cada vez que renderiza la pagina
+  useEffect(() => {
+    getCategoriesList();
+  }, []);
+
+
+  // Function to get categoriesList
+  const getCategoriesList = async() => {
+
+    try {
+      // Variable for wait the get response and then save it into categories useState hook
+      const response = await api.get('http://localhost:3000/v1/categories/list');
+      setCategories(response.data);
+    } catch(error) {
+      console.log(error);
+    }
+
+  }
+
   return (
     <div className="flex justify-center m-8">
       <div>
