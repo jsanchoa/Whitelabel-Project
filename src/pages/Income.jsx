@@ -1,37 +1,36 @@
-import React from 'react';
+//import React from 'react';
 
 import CEditableTable from "@/components/customs/c_EditableTable";
+import React, { useState, useEffect } from 'react';
 
 
-const incomes = [
-  {
-    id: 1,
-    date: "2025-04-01",
-    amount: 222,
-    description: "Sale of goods",
-    name: "Department Store",
-    status: "Active"
-  },
-  {
-    id: 2,
-    date: "2025-04-02",
-    amount: 97,
-    description: "Consulting income",
-    name: "Consulting ABC",
-    status: "Active"
-  },
-  {
-    id: 3,
-    date: "2025-04-03",
-    amount: 167,
-    description: "Advertising income",
-    name: "Ad Agency XYZ",
-    status: "Cancelled"
-  },
-
-];
 
 export const Income = () => {
+
+
+//Hook to save my data
+  const [incomes, setIncomes] = useState([]);
+
+    //useEffect funciona para cargar la funcion cada vez que renderiza la pagina
+    useEffect(() => {
+      getIncomesList();
+    }, []);
+
+    // Functions to get Incomes and Expenses
+  const getIncomesList = async () => {
+
+    try {
+      // Variable for wait the get response and then save it into categories useState hook
+      const response = await api.get('http://localhost:3000/v1/incomes/list');
+      setIncomes(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+
+  };
+
+
+
   return (
     <div className="container mx-auto p-6">
       <h1 className="text-3xl font-bold mb-4">Incomes</h1>

@@ -135,7 +135,7 @@ export const Sales_Chart = () => {
 
   const filteredData = chartData.filter((item) => {
     const date = new Date(item.date)
-    const referenceDate = new Date("2025-06-30")
+    const referenceDate = new Date("2025-08-18")
     let daysToSubtract = 90
     if (timeRange === "30d") {
       daysToSubtract = 30

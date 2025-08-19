@@ -23,52 +23,34 @@ import {
 
 import { Pencil, Trash2 } from "lucide-react";
 
-const invoices = [
-  {
-    invoice: "INV001",
-    paymentStatus: "Paid",
-    totalAmount: "$250.00",
-    paymentMethod: "Credit Card",
-  },
-  {
-    invoice: "INV002",
-    paymentStatus: "Pending",
-    totalAmount: "$150.00",
-    paymentMethod: "PayPal",
-  },
-  {
-    invoice: "INV003",
-    paymentStatus: "Unpaid",
-    totalAmount: "$350.00",
-    paymentMethod: "Bank Transfer",
-  },
-  {
-    invoice: "INV004",
-    paymentStatus: "Paid",
-    totalAmount: "$450.00",
-    paymentMethod: "Credit Card",
-  },
-  {
-    invoice: "INV005",
-    paymentStatus: "Paid",
-    totalAmount: "$550.00",
-    paymentMethod: "PayPal",
-  },
-  {
-    invoice: "INV006",
-    paymentStatus: "Pending",
-    totalAmount: "$200.00",
-    paymentMethod: "Bank Transfer",
-  },
-  {
-    invoice: "INV007",
-    paymentStatus: "Unpaid",
-    totalAmount: "$300.00",
-    paymentMethod: "Credit Card",
-  },
-];
+import { useEffect, useState } from "react";
+import api from "@/api/api";
+
 
 export const TableTest = () => {
+
+  //Hook to save my data
+  const [inventory, setInventory] = useState([]);
+  
+  //useEffect funciona para cargar la funcion cada vez que renderiza la pagina
+  useEffect(() => {
+    getInventoryList();
+  }, []);
+
+
+  // Function to get inventoryList
+  const getInventoryList = async() => {
+
+    try {
+      // Variable for wait the get response and then save it into inventory useState hook
+      const response = await api.get('http://localhost:3000/v1/inventory/list');
+      setInventory(response.data);
+    } catch(error) {
+      console.log(error);
+    }
+
+  }
+
   return (
     <div className="flex justify-center m-8">
       <div>
