@@ -18,9 +18,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-
-import { Pencil, Trash2 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Pencil, Trash2} from "lucide-react";
 import api from "@/api/api";
 
 

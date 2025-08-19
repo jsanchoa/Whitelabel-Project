@@ -61,7 +61,7 @@ export const PurchasesTable = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {clientPurchaseOrders.map((order, index) => (
+          {purchases.map((order, index) => (
             <TableRow key={index}>
               <TableCell className="font-medium">{order?.id}</TableCell>
               <TableCell>{order?.po_product_id}</TableCell>
