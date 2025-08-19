@@ -1,9 +1,12 @@
 import { Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router";
 
 export function RegisterProductButton() {
+  const navigate = useNavigate();
+
   const handleClick = () => {
-    console.log("Register product clicked");
+    navigate("/products/add");
   };
 
   return (

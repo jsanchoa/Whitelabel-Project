@@ -1,9 +1,12 @@
 import { Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router";
 
 export function RegisterCategoryButton() {
+  const navigate = useNavigate();
+
   const handleClick = () => {
-    console.log("Register category clicked");
+    navigate("/categories/add");
   };
 
   return (
