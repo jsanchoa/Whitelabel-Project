@@ -1,52 +1,41 @@
 import { Button } from "@/components/ui/button";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-
-import { Pencil, Trash2 } from "lucide-react";
+import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow,} from "@/components/ui/table";
+import {Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger,} from "@/components/ui/dialog";
 import { useEffect, useState } from "react";
+import { Pencil, Trash2 } from "lucide-react";
 import api from "@/api/api";
+import { useNavigate } from "react-router";
+import { toast } from "sonner";
 
 
 export const ProvidersTable = () => {
-
-  //Hook to save my data
   const [providers, setProviders] = useState([]);
-  
-  //useEffect funciona para cargar la funcion cada vez que renderiza la pagina
+  const navigate = useNavigate();
+
   useEffect(() => {
     getProvidersList();
   }, []);
 
-
-  // Function to get ProvidersList
-  const getProvidersList = async() => {
-
+  // Obtener lista de proveedores
+  const getProvidersList = async () => {
     try {
-      // Variable for wait the get response and then save it into providers useState hook
-      const response = await api.get('http://localhost:3000/v1/providers/list');
-      setProviders(response.data);
-    } catch(error) {
+      const { data } = await api.get("http://localhost:3000/v1/providers/list");
+      setProviders(Array.isArray(data) ? data : []);
+    } catch (error) {
       console.log(error);
     }
-  }
+  };
 
+  // Eliminar 
+  const deleteProvider = async (id) => {
+    try {
+      await api.delete(`http://localhost:3000/v1/providers/delete/${id}`);
+      toast.success("Provider has been deleted");
+    } catch (error) {
+      toast.error("Provider could not be deleted");
+      throw error;
+    }
+  };
 
   return (
     <div className="flex justify-center m-8">
@@ -54,7 +43,7 @@ export const ProvidersTable = () => {
         <Table className="rounded-[12px] w-[1250px]">
           <TableHeader>
             <TableRow>
-              <TableHead className="w-[180px]">Name</TableHead>
+              <TableHead className="w-[200px]">Name</TableHead>
               <TableHead>Business Type</TableHead>
               <TableHead>Account Number</TableHead>
               <TableHead>Address</TableHead>
@@ -62,24 +51,31 @@ export const ProvidersTable = () => {
               <TableHead className="w-[150px]"></TableHead>
             </TableRow>
           </TableHeader>
+
           <TableBody>
-            {providers.map((provider, index) => (
-              <TableRow key={index}>
-                <TableCell className="font-medium">{provider?.name}</TableCell>
-                <TableCell>{provider?.business_type}</TableCell>
-                <TableCell>{provider?.account_number}</TableCell>
-                <TableCell>{provider?.address}</TableCell>
-                <TableCell>{provider?.status}</TableCell>
+            {providers.map((prov) => (
+              <TableRow key={prov.id}>
+                <TableCell className="font-medium">{prov?.name}</TableCell>
+                <TableCell>{prov?.business_type}</TableCell>
+                <TableCell>{prov?.account_number}</TableCell>
+                <TableCell>{prov?.address}</TableCell>
+                <TableCell>{prov?.status}</TableCell>
+
                 <TableCell className="flex justify-end gap-2">
-                  <Button className="w-8 h-8">
+                  <Button
+                    onClick={() => navigate(`/providers/edit/${prov.id}`)}
+                    className="w-8 h-8"
+                  >
                     <Pencil />
                   </Button>
+
                   <Dialog>
                     <DialogTrigger asChild>
-                      <Button className="w-8 h-8">
+                      <Button className="w-8 h-8" variant="destructive">
                         <Trash2 />
                       </Button>
                     </DialogTrigger>
+
                     <DialogContent className="sm:max-w-md">
                       <DialogHeader>
                         <DialogTitle>Delete Confirmation</DialogTitle>
@@ -89,7 +85,14 @@ export const ProvidersTable = () => {
                       </DialogHeader>
                       <DialogFooter className="sm:justify-center">
                         <DialogClose asChild>
-                          <Button>Confirm</Button>
+                          <Button
+                            onClick={async () => {
+                              await deleteProvider(prov.id);
+                              await getProvidersList(); 
+                            }}
+                          >
+                            Confirm
+                          </Button>
                         </DialogClose>
                       </DialogFooter>
                     </DialogContent>
