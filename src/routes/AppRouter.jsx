@@ -18,6 +18,8 @@ import { Clients } from "@/pages/Clients";
 import { AdminCenter } from "@/pages/AdminCenter";
 import { PrivateRoute } from "@/context/PrivateRoute";
 import { SalesAddPage } from "@/components/sales/salesadd";
+import { ClientsAdd } from "@/components/clients/clientsadd";
+import { ClientsEdit } from "@/components/clients/clientsedit";
 import { ProductsAdd } from "@/components/inventory/productsadd";
 import { CategoriesAdd } from "@/components/inventory/categoriesadd";
 
@@ -250,6 +252,28 @@ export const AppRouter = () => {
           <PrivateRoute>
             <Layout>
               <Clients />
+            </Layout>
+          </PrivateRoute>
+        } 
+      />
+
+      <Route 
+        path="/clients/add" 
+        element={
+          <PrivateRoute>
+            <Layout>
+              <ClientsAdd />
+            </Layout>
+          </PrivateRoute>
+        } 
+      />
+
+      <Route 
+        path="/clients/edit/:id" 
+        element={
+          <PrivateRoute>
+            <Layout>
+              <ClientsEdit />
             </Layout>
           </PrivateRoute>
         } 
