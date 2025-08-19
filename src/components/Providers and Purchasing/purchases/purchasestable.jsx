@@ -48,65 +48,57 @@ export const PurchasesTable = () => {
   }
 
   return (
-    <div className="flex justify-center m-8">
-      <div>
-        <Table className="rounded-[12px] w-[1250px]">
-          <TableHeader>
-            <TableRow>
-              <TableHead className="w-[150px]">Purchase Number</TableHead>
-              <TableHead>Provider</TableHead>
-              <TableHead>Purchase Date</TableHead>
-              <TableHead>Products</TableHead>
-              <TableHead>Quantity</TableHead>
-              <TableHead>Payment Method</TableHead>
-              <TableHead>Subtotal</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead className="w-[150px]"></TableHead>
+  <div className="flex justify-center m-8">
+    <div>
+      <Table className="rounded-[12px] w-[1000px]">
+        <TableHeader>
+          <TableRow>
+            <TableHead className="w-[150px]">Order ID</TableHead>
+            <TableHead>PO Product ID</TableHead>
+            <TableHead>Client ID</TableHead>
+            <TableHead>Status</TableHead>
+            <TableHead className="w-[150px]"></TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {clientPurchaseOrders.map((order, index) => (
+            <TableRow key={index}>
+              <TableCell className="font-medium">{order?.id}</TableCell>
+              <TableCell>{order?.po_product_id}</TableCell>
+              <TableCell>{order?.client_id}</TableCell>
+              <TableCell>
+                {order?.status === "A" ? "Active" : "Inactive"}
+              </TableCell>
+              <TableCell className="flex justify-end gap-2">
+                <Button className="w-8 h-8">
+                  <Pencil />
+                </Button>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button className="w-8 h-8">
+                      <Trash2 />
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-md">
+                    <DialogHeader>
+                      <DialogTitle>Delete Confirmation</DialogTitle>
+                      <DialogDescription>
+                        This action cannot be undone. This will permanently
+                        delete this client purchase order from your records.
+                      </DialogDescription>
+                    </DialogHeader>
+                    <DialogFooter className="sm:justify-center">
+                      <DialogClose asChild>
+                        <Button>Confirm</Button>
+                      </DialogClose>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>
+              </TableCell>
             </TableRow>
-          </TableHeader>
-          <TableBody>
-            {purchases.map((purchase, index) => (
-              <TableRow key={index}>
-                <TableCell className="font-medium"> {purchase?.purchasenumber}
-                </TableCell>
-                <TableCell>{purchase?.provider}</TableCell>
-                <TableCell>{purchase?.purchasedate}</TableCell>
-                <TableCell>{purchase?.products}</TableCell>
-                <TableCell>{purchase?.quantity}</TableCell>
-                <TableCell>{purchase?.paymentmethod}</TableCell>
-                <TableCell>{purchase?.subtotal}</TableCell>
-                <TableCell>{purchase?.status}</TableCell>
-                <TableCell className="flex justify-end gap-2">
-                  <Button className="w-8 h-8">
-                    <Pencil />
-                  </Button>
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <Button className="w-8 h-8">
-                        <Trash2 />
-                      </Button>
-                    </DialogTrigger>
-                    <DialogContent className="sm:max-w-md">
-                      <DialogHeader>
-                        <DialogTitle>Delete Confirmation</DialogTitle>
-                        <DialogDescription>
-                          This action cannot be undone. This will permanently
-                          delete this purchase from your records.
-                        </DialogDescription>
-                      </DialogHeader>
-                      <DialogFooter className="sm:justify-center">
-                        <DialogClose asChild>
-                          <Button>Confirm</Button>
-                        </DialogClose>
-                      </DialogFooter>
-                    </DialogContent>
-                  </Dialog>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </div>
+          ))}
+        </TableBody>
+      </Table>
     </div>
-  );
-};
+  </div>
+)};
