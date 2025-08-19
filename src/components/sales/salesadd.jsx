@@ -22,6 +22,7 @@ export const SalesAddPage = () => {
   const [clients, setClients] = useState([]);
   const [products, setProducts] = useState([]);
   const [saleItems, setSaleItems] = useState([{ productId: "", quantity: 1 }]);
+  const [clientId, setClientID] = useState("");
 
   useEffect(() => {
     listClients();
@@ -29,7 +30,7 @@ export const SalesAddPage = () => {
   }, [])
 
   const listClients = async () => {
-    const response = await api.get("http://localhost:3000/v1/users/list");
+    const response = await api.get("http://localhost:3000/v1/clients/list");
     setClients(response.data);
   }
 
@@ -55,15 +56,19 @@ export const SalesAddPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    // Payload que espera el backend
     const data = {
-      clientId: "id_cliente_aqui", // aquí conectás el select de cliente
-      items: saleItems
+      client_id: clientId,
+      products: saleItems.map((item) => ({
+        product_id: parseInt(item.product_id),
+        quantity: parseInt(item.quantity),
+      })),
     };
 
     try {
-      await api.post('http://localhost:3000/v1/sales/new', data);
+      await api.post("http://localhost:3000/v1/clientpurchaseorder/add", data);
       toast.success("La venta se registró correctamente");
-      navigate("/dashboard/sales");
+      navigate("/sales/list");
     } catch (error) {
       toast.error("No se pudo registrar la venta");
     }
@@ -79,7 +84,7 @@ export const SalesAddPage = () => {
         {/* Cliente */}
         <div className="grid gap-2 mt-2 mb-6">
           <Label>Client</Label>
-          <Select name="client">
+          <Select name="client" value={clientId} onValueChange={(clientId) => setClientID(clientId)}>
             <SelectTrigger className="w-full bg-white">
               <SelectValue placeholder="Select a client" />
             </SelectTrigger>
@@ -87,8 +92,8 @@ export const SalesAddPage = () => {
               <SelectGroup>
                 <SelectLabel>Clients</SelectLabel>
                 {clients.map((client) =>
-                  <SelectItem key={client.id} value={client.users_id.toString()}>
-                    {client.name}
+                  <SelectItem key={client.id} value={client.id.toString()}>
+                    {client.name} {client.last_name}
                   </SelectItem>
                 )}
               </SelectGroup>
