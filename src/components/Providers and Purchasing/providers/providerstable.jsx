@@ -63,7 +63,7 @@ export const ProvidersTable = () => {
 
                 <TableCell className="flex justify-end gap-2">
                   <Button
-                    onClick={() => navigate(`/providers/edit/${prov.id}`)}
+                    onClick={() => navigate(`/purchasing/providers/edit/${prov.id}`)}
                     className="w-8 h-8"
                   >
                     <Pencil />

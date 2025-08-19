@@ -54,7 +54,7 @@ export const ProvidersEdit = () => {
     try {
       await axios.patch(`http://localhost:3000/v1/providers/edit/${id}`, payload);
       toast.success("El proveedor se actualizó correctamente");
-      navigate("/providers");
+      navigate("/purchasing/providers");
     } catch (error) {
       toast.error("No se pudo actualizar el proveedor");
     }
@@ -130,7 +130,7 @@ export const ProvidersEdit = () => {
         </div>
 
         <div className="flex justify-center mt-15 gap-10">
-          <Button type="button" onClick={() => navigate("/providers")} className="w-50">
+          <Button type="button" onClick={() => navigate("/purchasing/providers")} className="w-50">
             <ArrowLeft />
             Regresar
           </Button>

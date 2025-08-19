@@ -17,7 +17,7 @@ import { ChartBarDefault } from "../inventory/stockchart"
 import { PurchasesFrequencyChart } from "../Providers and Purchasing/PurchasesFrequencyChart"
 
 export const ReportingDashboardCards = ({
-  sales = { day: 0, week: 0, month: 0, changeDay: 0, changeWeek: 0, changeMonth: 0 },
+  sales = { day: 3428, week: 21064, month: 310249, changeDay: 10, changeWeek: 25, changeMonth: 50 },
   topProducts = [],
   clients = { total: 0, active: 0 },
   inventoryStock = [],

@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import api from "@/api/api";
 import { Pencil, Trash2 } from "lucide-react";
 import * as Dialog from "@radix-ui/react-dialog";
+import { toast } from "sonner";
 
 export const ProductsTable = () => {
   const [products, setProducts] = useState([]);
@@ -26,6 +27,17 @@ export const ProductsTable = () => {
       setProducts(Array.isArray(response.data) ? response.data : []);
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  const deleteProduct= async (id) => {
+    try {
+      await api.delete(`http://localhost:3000/v1/products/delete/${id}`);
+      toast.success("Product has been deleted");
+      await getProductsList();
+    } catch (error) {
+      toast.error("Product could not be deleted");
+      throw error;
     }
   };
 
@@ -83,7 +95,7 @@ export const ProductsTable = () => {
 
                         <div className="mt-6 flex justify-center gap-2">
                           <Dialog.Close asChild>
-                            <Button variant="destructive">Confirm</Button>
+                            <Button onClick={() => deleteProduct(product.product_id)} variant="destructive">Confirm</Button>
                           </Dialog.Close>
                           <Dialog.Close asChild>
                             <Button variant="outline">Cancel</Button>

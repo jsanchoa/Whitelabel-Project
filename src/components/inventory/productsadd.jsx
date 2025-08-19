@@ -67,14 +67,13 @@ export const ProductsAdd = () => {
       description: description.trim(),
       price: price === "" ? null : parseFloat(price),
       stock: stock === "" ? null : parseInt(stock),
-      sku: sku.trim() || null,
-      status,
+      sku: sku.trim() || null
     };
 
     try {
       await api.post("http://localhost:3000/v1/products/add", payload);
       toast.success("El producto se registró correctamente");
-      navigate("/products/list");
+      navigate("/inventory/products");
     } catch (error) {
       toast.error("No se pudo registrar el producto");
       console.error(error);
@@ -182,24 +181,10 @@ export const ProductsAdd = () => {
             />
           </div>
 
-          <div className="grid gap-2">
-            <Label>Status</Label>
-            <Select value={status} onValueChange={setStatus}>
-              <SelectTrigger className="w-full bg-white">
-                <SelectValue placeholder="Select status" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectItem value="A">Active</SelectItem>
-                  <SelectItem value="I">Inactive</SelectItem>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-          </div>
         </div>
 
         <div className="flex justify-center mt-15 gap-10">
-          <Button onClick={() => navigate("/products/list")} type="button" className="w-50">
+          <Button onClick={() => navigate("/inventory/products")} type="button" className="w-50">
             <ArrowLeft />
             Regresar
           </Button>

@@ -32,7 +32,7 @@ export const ProvidersAdd = () => {
     try {
       await axios.post("http://localhost:3000/v1/providers/add", payload);
       toast.success("El proveedor se registró correctamente");
-      navigate("/providers");
+      navigate("/purchasing/providers");
     } catch (error) {
       toast.error("No se pudo registrar el proveedor");
     }
@@ -100,7 +100,7 @@ export const ProvidersAdd = () => {
         </div>
 
         <div className="flex justify-center mt-15 gap-10">
-          <Button type="button" onClick={() => navigate("/providers")} className="w-50">
+          <Button type="button" onClick={() => navigate("/purchasing/providers")} className="w-50">
             <ArrowLeft />
             Regresar
           </Button>

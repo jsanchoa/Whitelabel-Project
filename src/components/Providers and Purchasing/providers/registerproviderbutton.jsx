@@ -1,9 +1,12 @@
 import { Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router";
 
 export function RegisterProviderButton() {
+  const navigate = useNavigate();
+
   const handleClick = () => {
-    console.log("Register provider clicked");
+    navigate("/purchasing/providers/add");
   };
 
   return (

@@ -22,6 +22,8 @@ import { ClientsAdd } from "@/components/clients/clientsadd";
 import { ClientsEdit } from "@/components/clients/clientsedit";
 import { ProductsAdd } from "@/components/inventory/productsadd";
 import { CategoriesAdd } from "@/components/inventory/categoriesadd";
+import { ProvidersAdd } from "@/components/Providers and Purchasing/providers/providersadd";
+import { ProvidersEdit } from "@/components/Providers and Purchasing/providers/providersedit";
 
 export const AppRouter = () => {
 
@@ -240,6 +242,29 @@ export const AppRouter = () => {
           <PrivateRoute>
             <Layout>
               <Providers />
+            </Layout>
+          </PrivateRoute>
+        } 
+      />
+
+
+      <Route 
+        path="/purchasing/providers/add" 
+        element={
+          <PrivateRoute>
+            <Layout>
+              <ProvidersAdd />
+            </Layout>
+          </PrivateRoute>
+        } 
+      />
+
+      <Route 
+        path="/purchasing/providers/edit/:id" 
+        element={
+          <PrivateRoute>
+            <Layout>
+              <ProvidersEdit />
             </Layout>
           </PrivateRoute>
         } 
