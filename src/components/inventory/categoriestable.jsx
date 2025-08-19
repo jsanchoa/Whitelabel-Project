@@ -47,6 +47,18 @@ export const CategoriesTable = () => {
 
   }
 
+  const handleDelete = async(id) => {
+
+    try {
+      // Variable for wait the get response and then save it into categories useState hook
+      const response = await api.delete(`http://localhost:3000/v1/categories/delete/${id}`);
+      await getCategoriesList();
+    } catch(error) {
+      console.log(error);
+    }
+
+  }
+
   return (
     <div className="flex justify-center m-8">
       <div>
@@ -83,7 +95,7 @@ export const CategoriesTable = () => {
                       </DialogHeader>
                       <DialogFooter className="sm:justify-center">
                         <DialogClose asChild>
-                          <Button>Confirm</Button>
+                          <Button onClick={() =>  handleDelete(category.id)} >Confirm</Button>
                         </DialogClose>
                       </DialogFooter>
                     </DialogContent>
