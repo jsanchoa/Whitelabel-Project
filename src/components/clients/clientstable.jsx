@@ -24,7 +24,6 @@ import { useEffect, useState } from "react";
 import api from "@/api/api";
 
 
-
 export const ClientsTable = () => {
 
   //Hook to save my data
@@ -41,7 +40,7 @@ export const ClientsTable = () => {
 
     try {
       // Variable for wait the get response and then save it into clients useState hook
-      const response = await api.get('http://localhost:3000/v1/users/list');
+      const response = await api.get('http://localhost:3000/v1/clients/list');
       setClients(response.data);
     } catch(error) {
       console.log(error);
