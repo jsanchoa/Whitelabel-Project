@@ -6,7 +6,7 @@ export function RegisterCategoryButton() {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/categories/add");
+    navigate("/inventory/categories/add");
   };
 
   return (
